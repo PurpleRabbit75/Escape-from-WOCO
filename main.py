@@ -1,18 +1,8 @@
 from cmu_graphics import *
+from sprites import *
+from fluid_sim import Lava, Water, fluid_step, bucket
 
-Rect(0, 0, 20, 20, fill = "blue")
 
-
-Sam = Group(
-    Rect(40, 40, 20, 40, fill = "black"),
-    Circle(50, 30, 10, fill = "black")
-)
-
-pin = Group(
-    Rect(107.5, 100, 5, 50, fill = gradient("gold", "yellow")),
-    Circle(110, 90, 10, fill = None, border = gradient("gold", "yellow"), borderWidth = 5),
-    Rect(110-10, 100, 20, 5, fill = gradient("gold", "yellow"))
-)
 
 def onKeyPress(key):
     if key == "up":
@@ -23,6 +13,26 @@ def onKeyPress(key):
         Sam.centerX -= 10
     elif key == "right":
         Sam.centerX += 10
+
+g = 0.2
+vSam_0 = 0
+
+def onStep():
+
+    fluid_step()
+
+    global vSam_0
+    if not Sam.hitsShape(bucket):
+        Sam.centerY += vSam_0
+        vSam_0 += g
+    else:
+        vSam_0 = 0
+  
+
+    
+    
+    
+
 
 
 
