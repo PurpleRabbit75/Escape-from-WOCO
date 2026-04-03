@@ -1,3 +1,4 @@
-*.cypython
+*.cypython-314.pyc
 *.pyc
-__pycache__/
+/__pycache__/
+classes/__pycache__

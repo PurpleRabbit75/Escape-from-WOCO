@@ -1,39 +1,42 @@
 from cmu_graphics import *
+from classes.Wall import Wall
 from sprites import *
-from fluid_sim import Lava, Water, fluid_step, bucket
+if True:
+    import classes.ball
+    import classes.collidable
+    import classes.lava
+    import classes.pin
+    import classes.spawner
+    import classes.wall
+    import classes.water
+    
+
+def generate_set():
+    app.background = "cornflowerBlue"
+
+    # Upper slanty Walls
+    us1 = Wall(0, 0, 150, 90, lineWidth = 20)
+    us2 = Wall(400, 0, 250, 90, lineWidth = 20)
+
+    # Upper Little vertical Walls
+    uv1 = Wall(us1.box.x2, us1.box.y2 + 7, 150, 0, lineWidth = 20)
+    uv2 = Wall(us2.box.x2, us2.box.y2 + 7, 250, 0, lineWidth = 20)
+
+    # Lower slanty Walls
+    spacing = 70
+    ls1 = Wall(us1.box.x1, spacing, us1.box.x2, us1.box.y2 + spacing, lineWidth = 20)
+    ls2 = Wall(us2.box.x1, spacing, us2.box.x2, us2.box.y2 + spacing, lineWidth = 20)
+
+    # Lower vertical Walls
+    lv1 = Wall(150, 250, ls1.box.x2, ls1.box.y2 - 7, lineWidth = 20)
+    lv2 = Wall(250, 250, ls2.box.x2, ls2.box.y2 - 7, lineWidth = 20)
+
+generate_set()
 
 
-
-def onKeyPress(key):
-    if key == "up":
-        Sam.centerY -= 10
-    elif key == "down":
-        Sam.centerY += 10
-    elif key == "left":
-        Sam.centerX -= 10
-    elif key == "right":
-        Sam.centerX += 10
-
-g = 0.2
-vSam_0 = 0
+TEST_SPAWNER = spawner(200, 200, "water")
 
 def onStep():
-
-    fluid_step()
-
-    global vSam_0
-    if not Sam.hitsShape(bucket):
-        Sam.centerY += vSam_0
-        vSam_0 += g
-    else:
-        vSam_0 = 0
-  
-
-    
-    
-    
-
-
-
+    TEST_SPAWNER.step()
 
 cmu_graphics.run()

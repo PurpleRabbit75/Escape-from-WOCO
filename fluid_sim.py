@@ -1,5 +1,6 @@
 from cmu_graphics import *
-from set import bucket
+
+bucket = Rect(20, 350, 200, 50, fill = "brown", border = "saddlebrown", borderWidth = 5)
 
 Lava = []
 for i in range(100):
