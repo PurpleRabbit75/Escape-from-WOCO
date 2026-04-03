@@ -6,14 +6,77 @@ class Bucket:
 class Wall:
 
 
-class Ball:
-    collide with objects in a fluid sort of way
 
-class Lava extends Ball:
-    has a reference to a LavaSpawner
+All the balls in the game will update in this order:
+1. all balls move according to gravity
+2. all balls move according to ball collision
+3. all balls move according to wall collision
+This can all be handled by the ball spawners
 
-class Water extends Ball:
-    similar to Lava
+class Spawner:
+    self.balls = []
+
+    def spawn_balls():
+        pass
+
+    def move_balls_by_gravity():
+        for ball in balls:
+            move each ball according to gravity
+
+    
+    def move_balls_by_ball_collision():
+        balls_want_to_move_like_this = [(0, 0) for i in range(len(balls))]
+        collisions = [0 for in range(len(balls))]
+
+        repulsion_damper = 2
+        for i in range(len(balls)):
+            for j in range(len(balls)):
+                if i == j:
+                    pass
+
+                b1 = balls[i]
+                b2 = balls[j]
+
+                if b1 and b2 are overlapping
+                    collisions[i] += 1
+
+                    move_by_X = b1.centerX - b2.centerX
+                    move_by_Y = b1.centerY - b2.centerY
+                    if move_by_X < 0:
+                        rX = -b1.radius
+                    else:
+                        rX = b1.radius
+                    if move_by_Y < 0:
+                        rY = -b1.radius
+                    else:
+                        rY = b1.radius
+                    move_by_X = (move_by_X + rX) / repulsion_damper
+                    move_by_Y = (move_by_Y + rY) / repulsion_damper
+
+                    balls_want_to_move_like_this[i][0] += move_by_X
+                    balls_want_to_move_like_this[i][1] += move_by_Y
+
+        for i in range(len(balls_want_to_move_like_this)):
+            if collisions[i] > 0:
+                balls_want_to_move_like_this[i][0] /= collisions[i]
+                balls_want_to_move_like_this[i][1] /= collisions[i]
+
+                then move balls[i] by b_w_t_m_l_t[i][0] in the X direction and b_w_t_m_l_t[i][1] in the Y direction
+
+
+    def move_balls_by_wall_collision():
+        for ball in balls:
+            move each wall according to wall collision
+
+
+    '''
+    call this each frame
+    '''
+    def move_balls():
+        move_balls_by_gravity()
+        move_balls_by_ball_collision()    
+        move_balls_by_wall_collision()
+
 
 class LavaSpawner:
     At start of game, spawn some number of Lavas from its given location, and
@@ -26,6 +89,9 @@ class LavaSpawner:
         for i in range(number_of_lavas):
             spawn new Lava at x, y
             sleep(for a very short time)
+
+    
+
 
 class WaterSpawner:
     similar to LavaSpawner
