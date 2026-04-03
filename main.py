@@ -9,7 +9,7 @@ if True:
     import classes.spawner
     import classes.wall
     import classes.water
-    import classes.bucket
+    
 
 
 
@@ -38,6 +38,8 @@ if True:
 #         vSam_0 = 0
   
 
+a = Rect(0, 0, 400, 400, fill = "lightblue")
+print(type(a).__bases__)
     
     
     
