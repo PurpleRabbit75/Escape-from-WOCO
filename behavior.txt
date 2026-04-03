@@ -1,0 +1,38 @@
+
+class Bucket:
+    has a bunch of walls
+
+
+class Wall:
+
+
+class Ball:
+    collide with objects in a fluid sort of way
+
+class Lava extends Ball:
+    has a reference to a LavaSpawner
+
+class Water extends Ball:
+    similar to Lava
+
+class LavaSpawner:
+    At start of game, spawn some number of Lavas from its given location, and
+    give each of those Lavas a reference to this LavaSpawner
+
+    lavas = []
+    number_of_lavas = however many we want!
+
+    start_of_game():
+        for i in range(number_of_lavas):
+            spawn new Lava at x, y
+            sleep(for a very short time)
+
+class WaterSpawner:
+    similar to LavaSpawner
+
+
+
+
+
+if at least N waters of a water group and N lavas of a lava group intersect:
+    turn all of the waters and lavas of each water or lava group into stone
