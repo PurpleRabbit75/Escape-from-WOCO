@@ -1,5 +1,7 @@
 from cmu_graphics import *
-from objects import *
+from sprites import *
+from set import *
+from fluid_sim import Lava, Water
 
 
 
