@@ -1,7 +1,7 @@
 from cmu_graphics import *
 from sprites import *
 from set import *
-from fluid_sim import Lava, Water
+from fluid_sim import Lava, Water, fluid_step
 
 
 
@@ -19,6 +19,9 @@ g = 0.2
 vSam_0 = 0
 
 def onStep():
+
+    fluid_step()
+
     global vSam_0
     if Sam.hitsShape(pin):
         pin.fill = "red"
