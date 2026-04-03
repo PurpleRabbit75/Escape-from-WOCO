@@ -1,5 +1,18 @@
 from cmu_graphics import *
 
-class spawner():
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+class Spawner():
+    def __init__(self, x, y, fluidType):
+        self.x = x
+        self.y = y
+        self.fluidType = fluidType
+        self.children = []
+
+    def step(self):
+        if (self.fluidType == "water"):
+            self.children.append(Circle(self.x, self.y, 2, fill = "blue"))
+        else:
+            self.children.append(Circle(self.x, self.y, 2, fill = "orange"))
+
+            
+
+        

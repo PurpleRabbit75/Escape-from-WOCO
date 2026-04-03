@@ -1,5 +1,5 @@
 from cmu_graphics import *
 
-class collidable():
+class Collidable():
     def __init__(self, *args, **kwargs):
         pass
