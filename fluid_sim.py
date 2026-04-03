@@ -1,7 +1,7 @@
 from cmu_graphics import *
+from set import bucket
 
 Lava = []
-
 for i in range(100):
     Lava.append(Circle(2*i, 2*i, 5, fill = "red", border = "orange", borderWidth = 2))
 
@@ -11,11 +11,15 @@ for i in range(100):
 
 
 def fluid_step():
-    for lava in Lava:
-        lava.centerY += 1
-    for water in Water:
-        water.centerY -= 1
+    for dot in Lava + Water:
+        if not dot.hitsShape(bucket):
+            dot.centerY += 2
+   
+            
 
 
 if __name__ == "__main__":
     cmu_graphics.run()
+
+    def onStep():
+        fluid_step()
