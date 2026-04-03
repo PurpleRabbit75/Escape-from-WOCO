@@ -1,6 +1,6 @@
 from cmu_graphics import *
+from classes.wall import wall
 from sprites import *
-from fluid_sim import Lava, Water, fluid_step
 if True:
     import classes.ball
     import classes.collidable
@@ -11,6 +11,11 @@ if True:
     import classes.water
     
 
+def generate_set():
+    wall(0, 0, 150, 80, lineWidth = 20)
+    wall(400, 0, 250, 80, lineWidth = 20)
+
+generate_set()
 
 
 # def onKeyPress(key):
@@ -38,9 +43,8 @@ if True:
 #         vSam_0 = 0
   
 
-a = Rect(0, 0, 400, 400, fill = "lightblue")
-print(type(a).__bases__)
     
+
     
     
 
