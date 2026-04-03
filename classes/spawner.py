@@ -1,4 +1,5 @@
 from cmu_graphics import *
+from classes.ball import Ball
 
 class Spawner():
     def __init__(self, x, y, fluidType):
@@ -9,9 +10,12 @@ class Spawner():
 
     def step(self):
         if (self.fluidType == "water"):
-            self.children.append(Circle(self.x, self.y, 2, fill = "blue"))
+            self.children.append(Ball(self.x, self.y, 2, fill = "blue"))
         else:
-            self.children.append(Circle(self.x, self.y, 2, fill = "orange"))
+            self.children.append(Ball(self.x, self.y, 2, fill = "orange"))
+        
+        for particle in self.children:
+            particle.centerY += 1
 
             
 

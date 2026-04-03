@@ -1,5 +1,5 @@
 from cmu_graphics import *
 
-class Ball(cmu_graphics.Shape):
+class Ball(cmu_graphics.Circle):
     def __init__(self, *args, **kwargs):
-        pass
+        super().__init__(*args, **kwargs)

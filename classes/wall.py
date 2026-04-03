@@ -1,6 +1,6 @@
 from cmu_graphics import *
-from classes.collidable import collidable
+from classes.collidable import Collidable
 
-class Wall(collidable):
+class Wall(Collidable):
     def __init__(self, *args, **kwargs):
         self.box = Line(*args, **kwargs)

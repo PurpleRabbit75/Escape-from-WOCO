@@ -1,15 +1,9 @@
 from cmu_graphics import *
-from classes.Wall import Wall
+from classes.wall import Wall
+from classes.spawner import Spawner
+from classes.pin import Pin
+from classes.ball import Ball
 from sprites import *
-if True:
-    import classes.ball
-    import classes.collidable
-    import classes.lava
-    import classes.pin
-    import classes.spawner
-    import classes.wall
-    import classes.water
-    
 
 def generate_set():
     app.background = "cornflowerBlue"
@@ -34,7 +28,7 @@ def generate_set():
 generate_set()
 
 
-TEST_SPAWNER = spawner(200, 200, "water")
+TEST_SPAWNER = Spawner(200, 200, "water")
 
 def onStep():
     TEST_SPAWNER.step()

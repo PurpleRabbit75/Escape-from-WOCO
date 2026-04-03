@@ -1,7 +1,7 @@
 from cmu_graphics import *
-from classes.collidable import collidable
+from classes.collidable import Collidable
 
-class Pin(collidable):
+class Pin(Collidable):
     def __init__(self, *args, **kwargs):
         pin = Group(
             Rect(107.5, 100, 5, 50, fill = gradient("gold", "yellow")),
