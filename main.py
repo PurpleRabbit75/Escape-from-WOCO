@@ -1,5 +1,5 @@
 from cmu_graphics import *
-from classes.wall import Wall
+from classes.walls import Walls
 from classes.spawner import Spawner
 from classes.pin import Pin
 from classes.ball import Ball
